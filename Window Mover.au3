@@ -9,7 +9,7 @@ Opt("GUIOnEventMode", 1) ; 1= OnEvent Mode vs default MessageLoop Mode
 #include <NoFocusLines.au3> ; Thanks Melba23! -- https://www.autoitscript.com/forum/topic/101733-prevent-dotted-focus-lines-on-controls/
 _NoFocusLines_Global_Set() ; Must be called before GUI is created
 #include <WinAPI.au3>
-#include <Window Mover_Gui.isf>
+#include <Window Mover_Gui.au3> ; External Gui file created by ISN AutoIt Studio (http://www.isnetwork.at/) -- My new favorite AutoIt script editor!
 
 Global $ScriptName = StringLeft(@ScriptName, StringLen(@ScriptName) - 4) ; Get script name without extension
 Global $iniFile = @ScriptDir & "/" & $ScriptName & " Config.ini" ; Name config file
