@@ -5,7 +5,6 @@ Opt("GUIOnEventMode", 1) ; 1= OnEvent Mode vs default MessageLoop Mode
 ; Includes
 #include <Array.au3>
 #include <Date.au3>
-#include <GuiListView.au3>
 #include <Misc.au3>
 #include <NoFocusLines.au3> ; Thanks Melba23! -- https://www.autoitscript.com/forum/topic/101733-prevent-dotted-focus-lines-on-controls/
 _NoFocusLines_Global_Set() ; Must be called before GUI is created
