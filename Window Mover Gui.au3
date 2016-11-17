@@ -1,11 +1,11 @@
 #include <StaticConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
-#include <GuiButton.au3>
+#Include <GuiButton.au3>
 #include <GuiListView.au3>
 #include <EditConstants.au3>
 
-$hGUI = GUICreate(StringLeft(@ScriptName, StringLen(@ScriptName) - 4),500,470,-1,-1,-1,$WS_EX_TOPMOST)
+$hGUI = GUICreate(StringTrimRight(@ScriptName, 4),500,470,-1,-1,-1,$WS_EX_TOPMOST)
 GUISetOnEvent($GUI_EVENT_CLOSE, "_Exit", $hGUI)
 $listWinTable = GUICtrlCreatelistview("Enabled|Title|X|Y|W|H",0,0,500,152,$LVS_SINGLESEL,BitOr($LVS_EX_FULLROWSELECT,$WS_EX_CLIENTEDGE))
 GUICtrlSetOnEvent(-1,"_EditSelectedListItem")
@@ -67,14 +67,3 @@ GUICtrlSetTip(-1,"autoitscript.com")
 $labelStatus = GUICtrlCreateLabel("",125,442,250,25,$SS_CENTER,-1)
 GUICtrlSetState(-1,BitOr($GUI_SHOW,$GUI_ENABLE,$GUI_NOFOCUS))
 GUICtrlSetBkColor(-1,"-2")
-GUISetState(@SW_SHOW,$hGUI)
-
-
-While 1
-	$nMsg = GUIGetMsg()
-	Switch $nMsg
-		Case $GUI_EVENT_CLOSE
-			Exit
-
-	EndSwitch
-WEnd
