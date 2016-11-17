@@ -1,23 +1,64 @@
 ; Options
 Opt("WinTitleMatchMode", 2) ;1=start, 2=subStr, 3=exact, 4=advanced, -1 to -4=Nocase
+Opt("GUIOnEventMode"; Options
+Opt("WinTitleMatchMode", 2) ;1=start, 2=subStr, 3=exact, 4=advanced, -1 to -4=Nocase
 Opt("GUIOnEventMode", 1) ; 1= OnEvent Mode vs default MessageLoop Mode
 
 ; Includes
 #include <Array.au3>
 #include <Date.au3>
-#include <Misc.au3>
-#include <NoFocusLines.au3> ; Thanks Melba23! -- https://www.autoitscript.com/forum/topic/101733-prevent-dotted-focus-lines-on-controls/
-_NoFocusLines_Global_Set() ; Must be called before GUI is created
-#include <WinAPI.au3>
-#include <Window Mover_Gui.au3> ; External Gui file created by ISN AutoIt Studio (http://www.isnetwork.at/) -- My new favorite AutoIt script editor!
-
-Global $ScriptName = StringLeft(@ScriptName, StringLen(@ScriptName) - 4) ; Get script name without extension
+#include <Misc.au3>ft(@ScriptName, StringLen(@ScriptName) - 4) ; Get script name without extension
 Global $iniFile = @ScriptDir & "/" & $ScriptName & " Config.ini" ; Name config file
 
 If FileExists($iniFile) Then
 	Local $iniMenuMode = IniReadSection($iniFile, "General")
 	
-	If StringUpper($iniMenuMode[0][1]) = "NO" Then
+	If StringUpper($iniMen
+#include <NoFocusLines.au3> ; Thanks Melba23! -- https://www.autoitscript.com/forum/topic/101733-prevent-dotted-focus-lines-on-controls/
+_NoFocusLines_Global_Set() ; Must be called before GUI is created
+#include <WinAPI.au3>
+#include <Window Mover_Gui.au3> ; External Gui file created by ISN AutoIt Studio (http://www.isnetwork.at/) -- My new favorite AutoIt script editor!
+
+Global $ScriptName = StringLeuMode[0][1]) = "NO" Then
+		_MoveWindows()
+		_Exit()
+	EndIf
+	
+	_PullConfigToList() ; Populate gui list with saved windows
+EndIf
+
+WinWait($ScriptName, "", 120)
+GUISetState(@SW_SHOW, $hGUI) ; Show Menu GUI
+
+While 1
+	Sleep(1000) ; A full second shouldn't hurt, right?
+Wend
+
+Func _Exit()
+	GUIDelete($hGUI)
+	Exit
+EndFunc
+
+Func _CloseGui()
+	_MoveWindows()
+	_Exit(), 1) ; 1= OnEvent Mode vs default MessageLoop Mode
+
+; Includes
+#include <Array.au3>
+#include <Date.au3>
+#include <Misc.au3>ft(@ScriptName, StringLen(@ScriptName) - 4) ; Get script name without extension
+Global $iniFile = @ScriptDir & "/" & $ScriptName & " Config.ini" ; Name config file
+
+If FileExists($iniFile) Then
+	Local $iniMenuMode = IniReadSection($iniFile, "General")
+	
+	If StringUpper($iniMen
+#include <NoFocusLines.au3> ; Thanks Melba23! -- https://www.autoitscript.com/forum/topic/101733-prevent-dotted-focus-lines-on-controls/
+_NoFocusLines_Global_Set() ; Must be called before GUI is created
+#include <WinAPI.au3>
+#include <Window Mover_Gui.au3> ; External Gui file created by ISN AutoIt Studio (http://www.isnetwork.at/) -- My new favorite AutoIt script editor!
+
+Global $ScriptName = StringLeuMode[0][1]) = "NO" Then
 		_MoveWindows()
 		_Exit()
 	EndIf
